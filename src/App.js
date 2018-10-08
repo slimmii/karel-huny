@@ -826,18 +826,36 @@ class StreetViewMap extends Component {
 
     };
     render() {
-        return <GoogleMap><StreetViewPanorama defaultOptions={{ disableDefaultUI: true}} ref={(ref) => {this.streetview = ref; }} defaultPosition={{  lat: 51.179571, lng: 4.367954  }} visible={true} onPositionChanged={this.positionChanged}/></GoogleMap>;
+        return <GoogleMap><StreetViewPanorama defaultOptions={{ disableDefaultUI: true}} ref={(ref) => {this.streetview = ref; }} defaultPosition={{  lat: 51.179642, lng: 4.367964  }} visible={true} onPositionChanged={this.positionChanged}/></GoogleMap>;
 
     }
 };
 
 const MyMapComponent = withScriptjs(withGoogleMap(StreetViewMap));
 
+const Congrats = (props) => {
+    return <React.Fragment><div style={{padding: 20, borderWidth:1 , borderColor: 'black', boxShadow: '2px 2px black', position: 'absolute', pointerEvents: 'none', zIndex: 105, left:0, right:0, top:0, bottom:0, margin:'auto', width: 300, height:200, backgroundColor: 'white'}}>
+        <b>Congrats</b> You have found the mysterious dungeon you are being held in {props.steps} steps. The question is... how do you get out. Maybe this code will help you:<br/><br/><div style={{fontSize: 30}}>AQUA69</div> <br/>No idea where to type it though :/
+    </div></React.Fragment>;
+}
+
 class Step1 extends Component {
 
     state = {
         color: '#abc7ff',
         distance: undefined,
+        steps: 0
+    }
+
+    componentDidMount() {
+        console.log('Slimmy en Fristi werken daar! Opt eilandje');
+        console.log('\n'.repeat(80));
+        console.log('Weet je niet waar dat is? Ok scroll nog hoger!');
+        console.log('Ga naar August Michielsstraat 23!');
+        console.log('\n'.repeat(80));
+        console.log('Scroll up als je wil weten wat je moet doen.');
+        console.log('Vuile cheater!');
+
     }
 
 
@@ -852,7 +870,8 @@ class Step1 extends Component {
         if (distance < this.state.distance) {
             indication = 'WARMER';
         }
-        this.setState({distance, color, indication});
+
+        this.setState({distance, color, indication, steps: this.state.steps+1});
     }
 
     render() {
@@ -869,9 +888,11 @@ class Step1 extends Component {
             />
 
             <div style={{position: 'absolute', pointerEvents: 'none', zIndex: 100, top: 0, bottom: 0, left: 0, right: 0,backgroundColor: this.state.color + '44' }} />
-            <div style={{position: 'absolute', pointerEvents: 'none', zIndex: 102, top: 0, left: 0, right:0, textAlign: 'center', backgroundColor: this.state.indication === 'WARMER' ? 'red' : 'blue',fontSize: 50, color: 'white', textShadow: '2px 2px black'}}>
+            {(this.state.distance > 0.003) && <div style={{position: 'absolute', pointerEvents: 'none', zIndex: 102, top: 0, left: 0, right:0, textAlign: 'center', backgroundColor: this.state.indication === 'WARMER' ? 'red' : 'blue',fontSize: 50, color: 'white', textShadow: '2px 2px black'}}>
                 {this.state.indication}
-            </div>
+            </div>}
+            {(this.state.distance < 0.003) && <Congrats steps={this.state.steps}/>}
+        }
 
 
         </div>
