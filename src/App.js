@@ -839,12 +839,20 @@ const Congrats = (props) => {
     </div></React.Fragment>;
 }
 
+const Intro = (props) => {
+    return <React.Fragment><div style={{padding: 20, borderWidth:1 , borderColor: 'black', boxShadow: '2px 2px black', position: 'absolute', zIndex: 105, left:0, right:0, top:0, bottom:0, margin:'auto', width: 300, height:100, backgroundColor: 'white'}}>
+        <b>Lbh unir gb svaq gur ybpngvba jurer lbh'er orvat uryq! Bayl gura jr pna oernx gur pbqr!</b>
+        <br/><br/><button onClick={props.onClose}>PYBFR</button>
+    </div></React.Fragment>;
+}
+
 class Step1 extends Component {
 
     state = {
         color: '#abc7ff',
         distance: undefined,
-        steps: 0
+        steps: 0,
+        intro: true
     }
 
     onDistance = ({distance, color})=> {
@@ -865,6 +873,7 @@ class Step1 extends Component {
     render() {
 
         return <div style={{ height: `100%`, position: 'absolute', top: 0, bottom: 0, left: 0, right: 0 }}>
+            {this.state.intro && <Intro onClose={() => { this.setState({intro: false})}}/>}
 
             <MyMapComponent
                 isMarkerShown
