@@ -851,6 +851,7 @@ class Step1 extends Component {
     state = {
         color: '#abc7ff',
         distance: undefined,
+        indication: 'MOVE',
         steps: 0,
         intro: true
     }
@@ -886,7 +887,7 @@ class Step1 extends Component {
 
             <div style={{position: 'absolute', pointerEvents: 'none', zIndex: 100, top: 0, bottom: 0, left: 0, right: 0,backgroundColor: this.state.color + '44' }} />
             {(this.state.distance > 0.003) && <div style={{position: 'absolute', pointerEvents: 'none', zIndex: 102, top: 0, left: 0, right:0, textAlign: 'center', backgroundColor: this.state.indication === 'WARMER' ? 'red' : 'blue',fontSize: 50, color: 'white', textShadow: '2px 2px black'}}>
-                {this.state.indication}
+                {this.state.indication} ±{Math.round(this.state.distance)}km
             </div>}
             {(this.state.distance < 0.003) && <Congrats steps={this.state.steps}/>}
         }
