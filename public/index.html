@@ -10,6 +10,31 @@
     -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+    <script>
+      var hint = 0;
+      function giveHint() {
+          if (hint === 0) {
+              console.log('Ga naar de august michielsstraat 23 in antwerpen');
+          }
+          if (hint === 1) {
+              console.log('Ga naar het eilandje. Misschien vind je het dan wel.')
+          }
+          if (hint === 2) {
+              console.log('Ga naar slimmy en fristi hun werk.')
+          }
+          if (hint === 3) {
+              console.log('Wil je echt nog meer? Ik spoil de code dan...')
+          }
+          if (hint > 3) {
+              console.log('AQUA69')
+          }
+
+
+
+          hint++;
+      }
+
+    </script>
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.

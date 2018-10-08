@@ -847,18 +847,6 @@ class Step1 extends Component {
         steps: 0
     }
 
-    componentDidMount() {
-        console.log('Slimmy en Fristi werken daar! Opt eilandje');
-        console.log('\n'.repeat(80));
-        console.log('Weet je niet waar dat is? Ok scroll nog hoger!');
-        console.log('Ga naar August Michielsstraat 23!');
-        console.log('\n'.repeat(80));
-        console.log('Scroll up als je wil weten wat je moet doen.');
-        console.log('Vuile cheater!');
-
-    }
-
-
     onDistance = ({distance, color})=> {
         let indication = '';
         if (distance === undefined) {
