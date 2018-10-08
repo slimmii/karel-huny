@@ -826,7 +826,7 @@ class StreetViewMap extends Component {
 
     };
     render() {
-        return <GoogleMap><StreetViewPanorama defaultOptions={{ disableDefaultUI: true}} ref={(ref) => {this.streetview = ref; }} defaultPosition={{  lat: 51.179642, lng: 4.367964  }} visible={true} onPositionChanged={this.positionChanged}/></GoogleMap>;
+        return <GoogleMap><StreetViewPanorama defaultOptions={{ disableDefaultUI: true}} ref={(ref) => {this.streetview = ref; }} defaultPosition={{  lat: 51.143585, lng: 4.427688 }} visible={true} onPositionChanged={this.positionChanged}/></GoogleMap>;
 
     }
 };
